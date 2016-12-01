@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.AlertEventLog" table="alert_event_log" optimistic-lock="version">
+        <composite-id name="id" class="com.evercons.database.beans.AlertEventLogId">
+            <key-property name="deviceId" type="int">
+                <column name="device_id" />
+            </key-property>
+            <key-property name="userId" type="int">
+                <column name="user_id" />
+            </key-property>
+            <key-property name="eventData" type="string">
+                <column name="event_data" length="1000" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

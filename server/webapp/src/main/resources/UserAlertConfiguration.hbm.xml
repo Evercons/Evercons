@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.UserAlertConfiguration" table="user_alert_configuration" optimistic-lock="version">
+        <composite-id name="id" class="com.evercons.database.beans.UserAlertConfigurationId">
+            <key-property name="userId" type="int">
+                <column name="user_id" />
+            </key-property>
+            <key-property name="alertDeviceType" type="int">
+                <column name="alert_device_type" />
+            </key-property>
+            <key-property name="deviceConfiguration" type="string">
+                <column name="device_configuration" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="alertType" class="com.evercons.database.beans.AlertType" update="false" insert="false" fetch="select">
+            <column name="alert_device_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="com.evercons.database.beans.Users" update="false" insert="false" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

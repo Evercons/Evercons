@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<resultset name="deviceAndFencingData">
+		<return-scalar column="id" type="int" />
+		<return-scalar column="device_id" type="string" />
+		<return-scalar column="api_key" type="string" />
+		<return-scalar column="fencing_data" type="binary" />
+	</resultset>
+	<resultset name="deviceSummary">
+		<return-scalar column="id" type="int" />
+		<return-scalar column="device_id" type="string" />
+	</resultset>
+	<resultset name="alertInfo">
+		<return-scalar column="user_id" type="int" />
+		<return-scalar column="name" type="string" />
+		<return-scalar column="type" type="string" />
+		<return-scalar column="device_configuration" type="string" />
+	</resultset>
+	<resultset name="userDetails">
+		<return-scalar column="userId" type="int" />
+		<return-scalar column="loginId" type="string" />
+		<return-scalar column="emailId" type="string" />
+		<return-scalar column="primaryContact" type="string" />
+		<return-scalar column="secondaryContact" type="string" />
+		<return-scalar column="firstName" type="string" />
+		<return-scalar column="lastName" type="string" />
+	</resultset>
+	<resultset name="logSummary">
+		<return-scalar column="logId" type="string" />
+		<return-scalar column="latitude" type="string" />
+		<return-scalar column="longitude" type="string" />
+		<return-scalar column="etype" type="int" />
+		<return-scalar column="time" type="timestamp" />
+	</resultset>
+</hibernate-mapping>

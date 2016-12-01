@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.DeviceExt" table="device_ext" optimistic-lock="version">
+        <id name="deviceId" type="int">
+            <column name="device_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="device" class="com.evercons.database.beans.Device" update="false" insert="false" fetch="select">
+            <column name="device_id" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="addressLine1" type="string">
+            <column name="address_line1" length="100" />
+        </property>
+        <property name="addressLine2" type="string">
+            <column name="address_line2" length="100" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="100" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="45" />
+        </property>
+        <property name="pincode" type="string">
+            <column name="pincode" length="6" />
+        </property>
+    </class>
+</hibernate-mapping>

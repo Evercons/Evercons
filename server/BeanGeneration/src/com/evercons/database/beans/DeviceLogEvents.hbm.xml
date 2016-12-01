@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.DeviceLogEvents" table="device_log_events" optimistic-lock="version">
+        <composite-id name="id" class="com.evercons.database.beans.DeviceLogEventsId">
+            <key-property name="deviceId" type="int">
+                <column name="device_id" />
+            </key-property>
+            <key-property name="logid" type="int">
+                <column name="logid" />
+            </key-property>
+            <key-property name="event" type="string">
+                <column name="event" length="45" />
+            </key-property>
+            <key-property name="eventType" type="int">
+                <column name="event_type" />
+            </key-property>
+            <key-property name="latitude" type="string">
+                <column name="latitude" length="15" />
+            </key-property>
+            <key-property name="longitude" type="string">
+                <column name="longitude" length="15" />
+            </key-property>
+            <key-property name="locType" type="java.lang.Integer">
+                <column name="loc_type" />
+            </key-property>
+            <key-property name="eventTime" type="timestamp">
+                <column name="event_time" length="0" />
+            </key-property>
+            <key-property name="result" type="string">
+                <column name="result" length="45" />
+            </key-property>
+            <key-property name="bac" type="string">
+                <column name="bac" length="45" />
+            </key-property>
+            <key-property name="image" type="string">
+                <column name="image" length="45" />
+            </key-property>
+            <key-property name="info" type="string">
+                <column name="info" length="45" />
+            </key-property>
+            <key-property name="speed" type="big_decimal">
+                <column name="speed" precision="5" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="device" class="com.evercons.database.beans.Device" update="false" insert="false" fetch="select">
+            <column name="device_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="eventTypes" class="com.evercons.database.beans.EventTypes" update="false" insert="false" fetch="select">
+            <column name="event_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="locationTypes" class="com.evercons.database.beans.LocationTypes" update="false" insert="false" fetch="select">
+            <column name="loc_type" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

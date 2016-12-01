@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.VoilationsLog" table="voilations_log" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="device" class="com.evercons.database.beans.Device" update="false" insert="false" fetch="select">
+            <column name="id" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="deviceId" type="java.lang.Integer">
+            <column name="device_id" />
+        </property>
+        <property name="activityTime" type="timestamp">
+            <column name="activity_time" length="0" />
+        </property>
+        <property name="alertStatus" type="java.lang.Character">
+            <column name="alert_status" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

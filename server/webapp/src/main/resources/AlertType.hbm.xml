@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.AlertType" table="alert_type" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="45" />
+        </property>
+        <set name="userAlertConfigurations" table="user_alert_configuration" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="alert_device_type" not-null="true" />
+            </key>
+            <one-to-many class="com.evercons.database.beans.UserAlertConfiguration" />
+        </set>
+    </class>
+</hibernate-mapping>

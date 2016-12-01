@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.GeoFencingData" table="geo_fencing_data" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="device" class="com.evercons.database.beans.Device" fetch="select">
+            <column name="device_id" not-null="true" />
+        </many-to-one>
+        <property name="fencingData" type="binary">
+            <column name="fencing_data" />
+        </property>
+    </class>
+</hibernate-mapping>

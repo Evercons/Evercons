@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping resource="AlertEventLog.hbm.xml" />
+		<mapping resource="AlertType.hbm.xml" />
+		<mapping resource="Device.hbm.xml" />
+		<mapping resource="DeviceExt.hbm.xml" />
+		<mapping resource="DeviceLogEvents.hbm.xml" />
+		<mapping resource="EventTypes.hbm.xml" />
+		<mapping resource="GeoFencingData.hbm.xml" />
+		<mapping resource="LocationTypes.hbm.xml" />
+		<mapping resource="UserAlertConfiguration.hbm.xml" />
+		<mapping resource="UserDevice.hbm.xml" />
+		<mapping resource="Users.hbm.xml" />
+		<mapping resource="VoilationsLog.hbm.xml" />
+		
+		<mapping resource="queries.xml" />
+		<mapping resource="Resultsets.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

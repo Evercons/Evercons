@@ -1,0 +1,50 @@
+﻿<ion-view view-title="Evercons">
+    <ion-content style="background-color: #FEAE4F;">
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <div class="col col-75" style="background-color: white;border-radius: 15px;">
+                <form name="myForm" novalidate>
+                    <div class="list">
+                        <label class="item item-input">
+                            <input type="text" placeholder="First Name" name="firstName" ng-model="user.firstName" required>
+                        </label>
+                        <label class="item item-input">
+                            <input type="text" placeholder="Last Name" name="lastName" ng-model="user.lastName" required>
+                        </label>
+                        <label class="item item-input">
+                            <input type="email" placeholder="Email" name="emailId" ng-model="user.emailId" required>
+                        </label>
+                        <label class="item item-input">
+                            <input type="text" placeholder="User Name" name="loginId" ng-model="user.loginId" ng-minlength="5" required>
+                        </label>
+                        <label class="item item-input">
+                            <input type="password" placeholder="Password" name="passwd" ng-model="user.passwd" ng-minlength="6" required>
+                        </label>
+                        <label class="item item-input">
+                            <input type="password" placeholder="Confirm Password" name="password1" ng-model="user.passwd1" required>
+                        </label>
+                    </div>
+                    <div class="padding">
+                        <button class="button button-block button-positive" style="background-color: #111111;" ng-disabled="myForm.$invalid" ng-click="vm.register(user)">
+                            Sign Up
+                        </button>
+                        <p class="text-center">
+                            Already Registered? <a href="#/sign-in">Login</a>.
+                        </p>
+                    </div>
+                    <div class="padding">
+                        <p ng-show="myForm.firstName.$error.required">* First Name is required</p>
+                        <p ng-show="myForm.lastName.$error.required">* Last Name is required</p>
+                        <p ng-show="myForm.emailId.$error.required">* Email is required</p>
+                        <p ng-show="myForm.emailId.$invalid && !myForm.emailId.$pristine">* Must be an email address</p>
+                        <p ng-show="myForm.loginId.$error.required">* Username is required</p>
+                        <p ng-show="myForm.loginId.$error.minlength">* Username must be longer than 5 characters</p>
+                        <p ng-show="myForm.passwd.$error.required">* Password is required</p>
+                        <p ng-show="myForm.passwd.$error.minlength">* Password must be longer than 6 characters</p>
+                    </div>
+                </form>
+            </div>
+            <div class="col">&nbsp;</div>
+        </div>
+    </ion-content>
+</ion-view>

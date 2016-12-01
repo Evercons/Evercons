@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 29, 2016 9:20:11 PM by Hibernate Tools 5.1.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.evercons.database.beans.Device" table="device" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="deviceId" type="string">
+            <column name="device_id" length="100" not-null="true" />
+        </property>
+        <property name="imei" type="string">
+            <column name="IMEI" length="25" />
+        </property>
+        <property name="deviceStatus" type="java.lang.Character">
+            <column name="device_status" length="1" />
+        </property>
+        <property name="createdTime" type="timestamp">
+            <column name="created_time" length="0" />
+        </property>
+        <property name="driverName" type="string">
+            <column name="driver_name" length="50" />
+        </property>
+        <property name="driverId" type="string">
+            <column name="driver_id" length="45" />
+        </property>
+        <property name="apiKey" type="string">
+            <column name="api_key" length="45" />
+        </property>
+        <set name="geoFencingDatas" table="geo_fencing_data" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="device_id" not-null="true" />
+            </key>
+            <one-to-many class="com.evercons.database.beans.GeoFencingData" />
+        </set>
+        <set name="deviceLogEventses" table="device_log_events" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="device_id" not-null="true" />
+            </key>
+            <one-to-many class="com.evercons.database.beans.DeviceLogEvents" />
+        </set>
+        <set name="deviceExts" table="device_ext" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="device_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.evercons.database.beans.DeviceExt" />
+        </set>
+        <set name="userDevices" table="user_device" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="device_id" not-null="true" />
+            </key>
+            <one-to-many class="com.evercons.database.beans.UserDevice" />
+        </set>
+        <set name="voilationsLogs" table="voilations_log" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.evercons.database.beans.VoilationsLog" />
+        </set>
+    </class>
+</hibernate-mapping>
